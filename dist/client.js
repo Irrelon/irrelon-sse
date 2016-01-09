@@ -23,9 +23,12 @@ var Client = function () {
 
 emitter = new Emitter(Client);
 
-Client.prototype.connect = function (server, callback) {
+Client.prototype.connect = function (server, authKey, callback) {
 	var self = this,
-		source = new EventSource(server + '/_sse');
+		source;
+
+	authKey = authKey ? '?' + authKey : '';
+	source = new EventSource(server + '/_sse' + authKey);
 
 	source.addEventListener('open', function (e) {
 		self.emit('open', e);
