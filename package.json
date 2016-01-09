@@ -1,0 +1,79 @@
+{
+  "author": "Rob Evans - Irrelon Software Limited",
+  "name": "forerunnerdb",
+  "description": "A NoSQL document store database for browsers and Node.js.",
+  "version": "1.3.519",
+  "keywords": [
+    "forerunnerdb",
+    "forerunner",
+    "database",
+    "nosql",
+    "mongodb",
+    "javascript",
+    "document",
+    "store",
+    "browser",
+    "node",
+    "data",
+    "binding",
+    "index",
+    "client-side",
+    "server-side",
+    "lokijs",
+    "loki",
+    "db",
+    "memory",
+    "in-memory",
+    "indexeddb",
+    "localstorage",
+    "storage",
+    "websql",
+    "taffydb",
+    "taffy"
+  ],
+  "dependencies": {
+    "async": "^1.5.0",
+    "cors": "^2.7.1",
+    "crypto-js": "^3.1.5",
+    "express": "4.x",
+    "localforage": "^1.2.7",
+    "pako": "^0.2.8",
+    "rest": "^1.3.1"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "start": "forever start server/server.js",
+    "stop": "forever stop server/server.js",
+    "test": "grunt --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/irrelon/ForerunnerDB.git"
+  },
+  "devDependencies": {
+    "aliasify": "^1.8.0",
+    "browserify-derequire": "^0.9.4",
+    "derequire": "^2.0.3",
+    "fs-extra": "^0.26.2",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.1",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-jsdoc": "^1.1.0",
+    "grunt-node-qunit": "^2.0.2",
+    "grunt-qunit-istanbul": "^0.5.0",
+    "grunt-umd": "^2.3.5",
+    "npm": "^2.7.6",
+    "qunit": "^0.7.7",
+    "stringify": "^3.2.0"
+  },
+  "main": "./js/builds/nodecore",
+  "browserify": "./js/builds/all",
+  "bugs": {
+    "url": "http://github.com/irrelon/ForerunnerDB/issues"
+  },
+  "license": "MIT"
+}
