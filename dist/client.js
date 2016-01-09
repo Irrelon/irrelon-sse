@@ -7,13 +7,21 @@ if (typeof window !== 'undefined') {
 
 module.exports = Client;
 },{"../lib/Client":2}],2:[function(_dereq_,module,exports){
-var Emitter = _dereq_('irrelon-emitter');
+"use strict";
+
+// Tell JSHint about EventSource
+/*global
+ 	EventSource
+ */
+
+var Emitter = _dereq_('irrelon-emitter'),
+	emitter;
 
 var Client = function () {
 
 };
 
-Emitter(Client);
+emitter = new Emitter(Client);
 
 Client.prototype.connect = function (server, callback) {
 	var self = this,
@@ -24,10 +32,10 @@ Client.prototype.connect = function (server, callback) {
 	}, false);
 
 	source.addEventListener('error', function (e) {
-		if (source.readyState === 2) {
+		//if (source.readyState === 2) {
 			// The connection is dead, remove the connection
 
-		}
+		//}
 
 		self.emit('error', e);
 	}, false);
