@@ -1,79 +1,54 @@
 {
   "author": "Rob Evans - Irrelon Software Limited",
-  "name": "forerunnerdb",
-  "description": "A NoSQL document store database for browsers and Node.js.",
-  "version": "1.3.519",
+  "name": "irrelon-sse",
+  "description": "A lightweight server-sent-events library covering both server-side and client-side.",
+  "version": "1.0.3",
   "keywords": [
-    "forerunnerdb",
-    "forerunner",
-    "database",
-    "nosql",
-    "mongodb",
-    "javascript",
-    "document",
-    "store",
+    "server",
+    "sent",
+    "events",
     "browser",
-    "node",
-    "data",
-    "binding",
-    "index",
-    "client-side",
-    "server-side",
-    "lokijs",
-    "loki",
-    "db",
-    "memory",
-    "in-memory",
-    "indexeddb",
-    "localstorage",
-    "storage",
-    "websql",
-    "taffydb",
-    "taffy"
+    "client",
+    "realtime"
   ],
   "dependencies": {
     "async": "^1.5.0",
+    "body-parser": "^1.14.2",
     "cors": "^2.7.1",
-    "crypto-js": "^3.1.5",
     "express": "4.x",
-    "localforage": "^1.2.7",
-    "pako": "^0.2.8",
-    "rest": "^1.3.1"
+    "irrelon-emitter": "^1.0.2"
   },
   "engines": {
     "node": "*"
   },
   "scripts": {
-    "start": "forever start server/server.js",
-    "stop": "forever stop server/server.js",
     "test": "grunt --verbose"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/irrelon/ForerunnerDB.git"
+    "url": "git://github.com/irrelon/irrelon-sse.git"
   },
   "devDependencies": {
-    "aliasify": "^1.8.0",
-    "browserify-derequire": "^0.9.4",
-    "derequire": "^2.0.3",
-    "fs-extra": "^0.26.2",
-    "grunt": "^0.4.5",
-    "grunt-browserify": "^4.0.1",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-jshint": "^0.11.3",
-    "grunt-contrib-uglify": "^0.11.0",
-    "grunt-jsdoc": "^1.1.0",
-    "grunt-node-qunit": "^2.0.2",
-    "grunt-qunit-istanbul": "^0.5.0",
-    "grunt-umd": "^2.3.5",
-    "npm": "^2.7.6",
-    "qunit": "^0.7.7",
-    "stringify": "^3.2.0"
+    "aliasify": "*",
+    "browserify-derequire": "*",
+    "derequire": "*",
+    "fs-extra": "*",
+    "grunt": "*",
+    "grunt-browserify": "*",
+    "grunt-cli": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-jsdoc": "*",
+    "grunt-node-qunit": "*",
+    "grunt-qunit-istanbul": "*",
+    "grunt-umd": "*",
+    "qunit": "*",
+    "stringify": "*"
   },
-  "main": "./js/builds/nodecore",
-  "browserify": "./js/builds/all",
+  "main": "./lib/Server",
+  "browserify": "./builds/client",
   "bugs": {
-    "url": "http://github.com/irrelon/ForerunnerDB/issues"
+    "url": "http://github.com/irrelon/irrelon-sse/issues"
   },
   "license": "MIT"
 }
