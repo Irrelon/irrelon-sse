@@ -51,6 +51,8 @@ Client.prototype.connect = function (server, callback) {
 		}, false);
 	}
 };
+
+module.exports = Client;
 },{"irrelon-emitter":3}],3:[function(_dereq_,module,exports){
 /*
  The MIT License (MIT)
