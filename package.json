@@ -2,7 +2,7 @@
   "author": "Rob Evans - Irrelon Software Limited",
   "name": "irrelon-sse",
   "description": "A lightweight server-sent-events library covering both server-side and client-side.",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "keywords": [
     "server",
     "sent",
