@@ -1,3 +1,3 @@
 # Irrelon SSE
 
-## Version 1.0.21
+## Version 1.0.26
