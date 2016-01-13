@@ -54,6 +54,10 @@ Client.prototype.connect = function (server, authKey, authVal, callback) {
 		self.emit('open', e);
 	}, false);
 
+	connection.addEventListener('close', function (e) {
+		self.emit('close', e);
+	}, false);
+
 	connection.addEventListener('error', function (e) {
 		//if (connection.readyState === 2) {
 			// The connection is dead, remove the connection
@@ -70,9 +74,9 @@ Client.prototype.connect = function (server, authKey, authVal, callback) {
 	}, false);
 
 	if (callback) {
-		connection.addEventListener('connected', function (e) {
+		self.once('connected', function (e) {
 			callback(false);
-		}, false);
+		});
 	}
 };
 
@@ -207,18 +211,43 @@ Emitter.prototype.off = new Overload({
 	},
 
 	'$main': function (event, id, listener) {
+		var tmpId,
+			eventObj,
+			arr,
+			arrCount,
+			arrIndex;
+
 		if (this._listeners) {
 			if (event in this._listeners) {
-				var arr = this._listeners[event][id],
-					arrCount = arr.length,
-					arrIndex;
+				eventObj = this._listeners[event];
 
-				for (arrIndex = 0; arrIndex < arrCount; arrIndex++) {
-					if (arr[arrIndex].listener === listener) {
-						arr.splice(arrIndex, 1);
-						break;
+				if (id === '*') {
+					// Loop all ids in the listener for this event
+					for (tmpId in eventObj) {
+						if (eventObj.hasOwnProperty(tmpId)) {
+							arr = eventObj[tmpId];
+							arrCount = arr.length;
+
+							for (arrIndex = 0; arrIndex < arrCount; arrIndex++) {
+								if (listener === '*' || arr[arrIndex].listener === listener) {
+									arr.splice(arrIndex, 1);
+									break;
+								}
+
+							}
+						}
 					}
+				} else {
+					arr = eventObj[id];
+					arrCount = arr.length;
 
+					for (arrIndex = 0; arrIndex < arrCount; arrIndex++) {
+						if (listener === '*' || arr[arrIndex].listener === listener) {
+							arr.splice(arrIndex, 1);
+							break;
+						}
+
+					}
 				}
 			}
 		}
