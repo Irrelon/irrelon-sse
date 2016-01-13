@@ -24,6 +24,25 @@ var Client = function () {
 
 emitter = new Emitter(Client);
 
+/**
+ * Gets the state of the connection to the server.
+ * @returns {Number}
+ */
+Client.prototype.state = function () {
+	if (connection) {
+		return connection.readyState;
+	}
+
+	return -1;
+};
+
+/**
+ * Connects to a server.
+ * @param {String} server The server url.
+ * @param authKey
+ * @param authVal
+ * @param callback
+ */
 Client.prototype.connect = function (server, authKey, authVal, callback) {
 	var self = this,
 		authString;
@@ -57,6 +76,10 @@ Client.prototype.connect = function (server, authKey, authVal, callback) {
 	}
 };
 
+/**
+ * Disconnect from the server.
+ * @param callback
+ */
 Client.prototype.disconnect = function (callback) {
 	var self = this;
 

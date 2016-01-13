@@ -64,7 +64,7 @@ module.exports = function(grunt) {
 		umd: {
 			client: {
 				options: {
-					src: './dist/fdb-all.js',
+					src: './dist/client.js',
 					globalAlias: 'IrrelonSSE'
 				}
 			}
